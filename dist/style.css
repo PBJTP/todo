@@ -1,0 +1,131 @@
+:root {
+    --blue: #067bc2;
+    --teal: #17c3b2;
+    --orange: #f26419;
+    --white: #ebebeb;
+    --black: #1c1d21;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    display: border-box;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 150px 1fr;
+    background-color: var(--white);
+}
+
+.header {
+    background-color: var(--blue);
+    color: var(--white);
+    text-shadow: #1c1d21 0px 0px 5px;
+    
+    box-shadow: black 0px 1px 5px;
+    z-index: 1;
+    grid-column: 1 / 3;
+    max-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .burger-button {
+    color: var(--white);
+    padding-left: 20px;
+
+}
+
+.header h1 {
+    padding-right: 50px;
+    text-align: right;
+    margin: 0;
+    font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.sidebar {
+    background: var(--orange);
+    box-shadow: black 1px 0px 3px;
+    display: grid;
+    align-content: center;
+    grid-template-rows: 1fr 1fr;
+}
+
+.sidebar ul {
+    text-align: left;
+    list-style: none;
+    align-self: top;
+    justify-self: center;
+}
+
+.sidebar li {
+    padding-top: 30px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    font-size: clamp(1rem, 10vw, 1.5rem);
+    color: var(--white);
+    text-shadow: black 0px 0px 5px;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+.sidebar h3 {
+    text-align: center;
+    align-self: end;
+    padding: 0;
+    margin-bottom: 10px;
+    font-size: clamp(.5rem, 10vw, 1rem);
+    color: var(--white);
+    text-shadow: black 0px 0px 5px;
+}
+
+.content-spacer {
+    grid-row: 2/ 3;
+    grid-column: 2/3;
+    padding: 2em;
+}
+
+.content {
+    display: grid;
+    justify-content: center;
+    overflow: auto;
+}
+
+.task {
+    margin: 5px;
+    display: grid;
+    justify-self: center;
+    grid-template-columns: 30px 5fr 1fr 1fr 1fr;
+    grid-template-rows: 2rem;
+    border-bottom: solid black 2px;
+    width: clamp(500px, 70vw, 1200px);
+}
+
+.task input {
+    margin-left: 10px;
+    justify-self: left;
+}
+
+.task p {
+    font-size: clamp(16px, 10vw, 20px);
+    font-weight: 400;
+    justify-self: left;
+    align-self: center;
+}
+
+.task button {
+    overflow: hidden;
+    height: 25px;
+    background-color: var(--teal);
+    margin: 0 5px 0 5px;
+    font-size: clamp(10px, 10vw, 16px);
+}

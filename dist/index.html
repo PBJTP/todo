@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To-Do App</title>
+</head>
+<body>
+    <div class="header">
+        <div class="burger-button">Burger Button Placeholder</div>
+        <h1>Get This S&%# Done</h1>
+    </div>
+    <div class="sidebar">
+        <ul class="sidebar-nav">
+            <li><a href="">Home</a></li>
+            <li><a href="">This Week</a></li>
+            <li><a href="">This Month</a></li>
+            <li><a href="">Projects</a></li>
+            <li><a href="">Recently Finished</a></li>
+        </ul>
+        <h3>Made by PBJTP</h3>
+    </div>
+    <div class="content-spacer">
+        <div class="content">
+            <div class="task">
+                <input type="checkbox">
+                <p>Take out the trash</p>
+                <button>Delete</button>
+                <button>Edit</button>
+                <button>Change Due</button>
+            </div>
+            <div class="task">
+                <input type="checkbox">
+                <p>Take out the trash</p>
+                <button>Delete</button>
+                <button>Edit</button>
+                <button>Change Due</button>
+            </div>
+            <div class="task">
+                <input type="checkbox">
+                <p>Take out the trash</p>
+                <button>Delete</button>
+                <button>Edit</button>
+                <button>Change Due</button>
+            </div>
+            <div class="task">
+                <input type="checkbox">
+                <p>Take out the trash</p>
+                <button>Delete</button>
+                <button>Edit</button>
+                <button>Change Due</button>
+            </div>
+            <div class="task">
+                <input type="checkbox">
+                <p>Take out the trash</p>
+                <button>Delete</button>
+                <button>Edit</button>
+                <button>Change Due</button>
+            </div>
+            <div class="task">
+                <input type="checkbox">
+                <p>Take out the trash</p>
+                <button>Delete</button>
+                <button>Edit</button>
+                <button>Change Due</button>
+            </div>
+        </div>
+        <form id="form">
+            <label for="task">Task:</label>
+            <input type="text" id="task" name ="task" value="trash related">
+            <label for="notes">Notes:</label>
+            <input type="textarea" value="literally just trash" id="notes" name="notes">
+            <fieldset>
+                <Legend>Priority?</Legend>
+                <input type="radio" name="priority" id="high" value="h" checked>
+                <label for="high">High</label>
+                <input type="radio" name="priority" id="medium" value="m">
+                <label for="medium">Medium</label>
+                <input type="radio" name="priority" id="low" value="l">
+                <label for="low">Low</label>
+            </fieldset>
+            <label for="date">Due:</label>
+            <input type="date" name="date" id="date" today>
+            <button type="submit">Add Task</button>
+        </form>
+    </div>
+</body>
+    <script src="main.js"></script>
+</html>

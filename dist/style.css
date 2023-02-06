@@ -142,3 +142,7 @@ body {
     font-size: clamp(10px, 10vw, 16px);
     align-self: center;
 }
+
+.task.checked {
+    background-color: gray;
+}

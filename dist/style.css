@@ -110,6 +110,18 @@ body {
     width: clamp(500px, 70vw, 1200px);
 }
 
+.high-priority {
+    background-color: red;
+}
+
+.medium-priority {
+    background-color: yellow;
+}
+
+.low-priority {
+    background-color: green;
+}
+
 .task input {
     margin-left: 10px;
     justify-self: left;
@@ -128,4 +140,5 @@ body {
     background-color: var(--teal);
     margin: 0 5px 0 5px;
     font-size: clamp(10px, 10vw, 16px);
+    align-self: center;
 }

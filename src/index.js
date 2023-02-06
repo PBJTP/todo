@@ -1,13 +1,23 @@
-import render from "./updateDom";
 //global variables
-let myTasks = [];
+let myTasks = [{
+    task: 'Take out trash',
+    notes: 'trash related',
+    date: 'today',
+    priority: 'h',
+},
+{
+    task: 'Laundry',
+    notes: 'clothes related',
+    date: 'tomorrow',
+    priority: 'l',
+},
+{
+    task: 'Groceries',
+    notes: 'food related',
+    date: 'yesterday',
+    priority: 'm',
+}];
 const form = document.getElementById('form');
-
-
-// //Factory function for task creation
-// function createTask(task, notes, priority, date) {
-//     return {task, notes, priority, date};
-// };
 
 //submit task, create object, add to array
 form.addEventListener('submit', (e) => {
@@ -16,7 +26,7 @@ form.addEventListener('submit', (e) => {
     const data = Object.fromEntries(formData);
     myTasks.push(data);
     addId();
-    addTask(data.task, data.notes, data.priority, data.date);
+    render();
 });
 
 
@@ -30,7 +40,60 @@ function addId() {
     console.log(myTasks);
 };
 
-function addTask(task, notes, priority, date) {
+function render() {
     const container = document.querySelector('.content');
-    container.appendChild(render(task, notes, priority, date));
+    container.innerHTML = "";
+    myTasks.map((tasks, index) => {
+        console.log(tasks);
+        console.log(index);
+        const div = document.createElement('div');
+        const checkBox = document.createElement('input');
+        const p = document.createElement('p');
+        const dlt = document.createElement('button');
+        const edit = document.createElement('button');
+        const due = document.createElement('button');
+    
+        div.classList.add('task');
+        checkBox.type = 'checkbox';
+        p.textContent = myTasks[index].task;
+        dlt.textContent = 'Delete';
+        dlt.classList.add('delete');
+        edit.textContent = 'Edit';
+        due.textContent = 'Change Due';
+
+        if (myTasks[index].priority == 'h') {
+            div.classList.add('high-priority');
+        } else if (myTasks[index].priority == 'm') {
+            div.classList.add('medium-priority');
+        } else if (myTasks[index].priority == 'l') {
+            div.classList.add('low-priority');
+        };
+
+        
+        div.appendChild(checkBox);
+        div.appendChild(p);
+        div.appendChild(dlt);
+        div.appendChild(edit);
+        div.appendChild(due);
+        
+        container.appendChild(div);
+        
+    });
+
+    deleteTasks();
+    
+    return container;
+}
+
+function deleteTasks() {
+    const matches = document.querySelectorAll('.delete');
+    matches.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            myTasks.splice(index, 1);
+            console.log(myTasks);
+            render();
+        })
+    }) 
 };
+
+render();

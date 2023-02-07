@@ -37,7 +37,6 @@ function addId() {
     myTasks.forEach((item, index) => {
         myTasks[index].id = index;
     });
-    console.log(myTasks);
 };
 
 
@@ -69,7 +68,6 @@ function render() {
         } else if (myTasks[index].priority == 'l') {
             div.classList.add('low-priority');
         };
-
         
         div.appendChild(checkBox);
         div.appendChild(p);
@@ -78,6 +76,12 @@ function render() {
         div.appendChild(due);
         
         container.appendChild(div);
+
+        if (myTasks[index].completed === true) {
+            document.getElementById(index).classList.add('checked');
+            const div = document.getElementById(index)
+            div.querySelector('input[type=checkbox]').checked = true;
+        };
         
     });
 
@@ -96,7 +100,6 @@ function deleteTasks() {
     matches.forEach((item, index) => {;
         item.addEventListener('click', () => {
             myTasks.splice(index, 1);
-            console.log(myTasks);
             render();
         })
     }) 
@@ -106,14 +109,18 @@ function deleteTasks() {
 //Add task completed class when checkbox is checked
 function taskCompleted() {
     const matches = document.querySelectorAll('input[type=checkbox]');
-    console.log(matches)
     matches.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            document.getElementById(index).classList.toggle('checked');
+        item.addEventListener('change', () => {
+            if (matches[index].checked) {
+                document.getElementById(index).classList.add('checked');
+                myTasks[index].completed = true;
+            } else {
+                document.getElementById(index).classList.remove('checked');
+                myTasks[index].completed = false;
+            }
         })
     })
 }
  
 //generate dummy content to DOM
 render();
-taskCompleted();
